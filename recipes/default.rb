@@ -16,19 +16,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7c82363150616ac18ca78c9b03feb78477b9e68b
 windows_zipfile "c:/" do
   source "http://pigramsoftware.no-ip.biz/repo/XD71.zip"
   action :unzip
   not_if {::File.exists?("c:/XenDesktop7_1")}
 end
 
+<<<<<<< HEAD
 batch "XD7 CRTL" do
+=======
+windows_batch "XD7 CRTL" do
+>>>>>>> 7c82363150616ac18ca78c9b03feb78477b9e68b
   code <<-EOH
   cd c:\\XenDesktop7_1
   c:\\XenDesktop7_1\\x64\\XenDesktopSetup\\XenDesktopServerSetup.exe /quiet /COMPONENTS DESKTOPDIRECTOR /CONFIGURE_FIREWALL
   EOH
   not_if {reboot_pending?}
+<<<<<<< HEAD
 end
 
 # if feature installs, schedule a reboot at end of chef run
@@ -36,3 +44,6 @@ windows_reboot 60 do
   reason 'cause chef said so'
   only_if {reboot_pending?}
 end 
+=======
+end
+>>>>>>> 7c82363150616ac18ca78c9b03feb78477b9e68b
